@@ -9,3 +9,6 @@
 |**Матан**|[РГР#3](https://github.com/Bazalii/IS-Stuff/blob/master/Mathematical%20Analysis/SettlementGraphicWork%233.pdf)|
 |**Линал**|[Lab#1](https://github.com/Bazalii/IS-Stuff/blob/master/Linear%20Algebra/Lab1/main.py); [Description](https://github.com/Bazalii/IS-Stuff/blob/master/Linear%20Algebra/Lab1/Description.pdf)|
 |**Линал**|[Lab#2](https://github.com/Bazalii/IS-Stuff/blob/master/Linear%20Algebra/Lab2/main.py); [Description](https://github.com/Bazalii/IS-Stuff/blob/master/Linear%20Algebra/Lab2/Description.pdf)|
+|**Теорвер**|[Предельные теоремы](https://github.com/Bazalii/IS-Stuff/blob/master/Probability%20Theory/Homeworks/LimitTheorems.pdf)|
+|**Теорвер**|[Типовик #6](https://github.com/Bazalii/IS-Stuff/blob/master/Probability%20Theory/Typical%20Calculation/Task6.pdf)|
+|**Теорвер**|[Типовик #7](https://github.com/Bazalii/IS-Stuff/blob/master/Probability%20Theory/Typical%20Calculation/Task7.pdf)|
