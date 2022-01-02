@@ -12,3 +12,4 @@
 |**Теорвер**|[Предельные теоремы](https://github.com/Bazalii/IS-Stuff/blob/master/Probability%20Theory/Homeworks/LimitTheorems.pdf)|
 |**Теорвер**|[Типовик #6](https://github.com/Bazalii/IS-Stuff/blob/master/Probability%20Theory/Typical%20Calculation/Task6.pdf)|
 |**Теорвер**|[Типовик #7](https://github.com/Bazalii/IS-Stuff/blob/master/Probability%20Theory/Typical%20Calculation/Task7.pdf)|
+|**Физика**|[Моделирование#1](https://github.com/Bazalii/IS-Stuff/blob/master/Physics/Modeling/PhysicalModeling%231.pdf)|
