@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using FirstLab.Loggers;
 
 namespace FirstLab.Algorithms
 {
     public abstract class Algorithm
     {
+        protected ILogger Logger;
+        
         protected FunctionDelegate Function;
 
         protected int Accuracy;
 
         protected double Epsilon;
 
-        protected Algorithm(FunctionDelegate function, int accuracy)
+        protected Algorithm(ILogger logger, FunctionDelegate function, int accuracy)
         {
+            Logger = logger;
             Function = function;
             Accuracy = accuracy;
             Epsilon = Math.Pow(10, -Accuracy);

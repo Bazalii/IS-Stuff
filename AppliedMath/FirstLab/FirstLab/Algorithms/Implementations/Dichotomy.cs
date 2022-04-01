@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using FirstLab.Loggers;
 
 namespace FirstLab.Algorithms.Implementations
 {
     public class Dichotomy : Algorithm
     {
-        public Dichotomy(FunctionDelegate function, int accuracy)
-            : base(function, accuracy)
+        public Dichotomy(ILogger logger, FunctionDelegate function, int accuracy)
+            : base(logger, function, accuracy)
         {
         }
 
@@ -19,9 +20,7 @@ namespace FirstLab.Algorithms.Implementations
                 intervalLengths.Add(currentLength);
                 var currentLeft = (left + right - Epsilon) / 2;
                 var currentRight = (left + right + Epsilon) / 2;
-                var leftValue = Function(currentLeft);
-                var rightValue = Function(currentRight);
-                if (leftValue <= rightValue)
+                if (Function(currentLeft) <= Function(currentRight))
                 {
                     right = currentRight;
                 }
@@ -29,12 +28,13 @@ namespace FirstLab.Algorithms.Implementations
                 {
                     left = currentLeft;
                 }
-
+                
                 currentLength = right - left;
+                Logger.Write(intervalLengths.Count, intervalLengths.Count * 2, currentLength, (left + right) / 2);
             }
             
             intervalLengths.Add(currentLength);
-            Console.WriteLine($"{(left + right) / 2}");
+            Logger.Write(intervalLengths.Count, intervalLengths.Count * 2, currentLength, (left + right) / 2);
             DrawGraph(intervalLengths);
         }
     }

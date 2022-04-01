@@ -1,43 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using FirstLab.Loggers;
 
 namespace FirstLab.Algorithms.Implementations
 {
     public class FibonacciMethod : Algorithm
     {
-        public FibonacciMethod(FunctionDelegate function, int accuracy) : base(function, accuracy)
+        public FibonacciMethod(ILogger logger, FunctionDelegate function, int accuracy)
+            : base(logger, function, accuracy)
         {
         }
 
         public override void Execute(double left, double right)
         {
+            var intervalLengths = new List<double>();
             var fibonacciNumbers = CalculateFibonacciNumbers((right - left) / Epsilon);
-            var currentLeft = left + (double)fibonacciNumbers[^3] / fibonacciNumbers[^1] * (right - left);
-            var currentRight = left + (double)fibonacciNumbers[^2] / fibonacciNumbers[^1] * (right - left);
-            var leftValue = Function(currentLeft);
-            var rightValue = Function(currentRight);
+            var currentLeft = left + (double) fibonacciNumbers[^3] / fibonacciNumbers[^1] * (right - left);
+            var currentRight = left + (double) fibonacciNumbers[^2] / fibonacciNumbers[^1] * (right - left);
+            var currentLength = right - left;
             for (int i = 0; i < fibonacciNumbers.Count - 3; i++)
             {
-                leftValue = Function(currentLeft);
-                rightValue = Function(currentRight);
-                if (leftValue <= rightValue)
+                intervalLengths.Add(currentLength);
+                if (Function(currentLeft) <= Function(currentRight))
                 {
                     right = currentRight;
                     currentRight = currentLeft;
-                    currentLeft = left + (double)fibonacciNumbers[^(i + 4)] / fibonacciNumbers[^(i + 2)] * (right - left);
+                    currentLeft = left + (double) fibonacciNumbers[^(i + 4)] / fibonacciNumbers[^(i + 2)] *
+                        (right - left);
                 }
                 else
                 {
                     left = currentLeft;
                     currentLeft = currentRight;
-                    currentRight = left + (double)fibonacciNumbers[^(i + 3)] / fibonacciNumbers[^(i + 2)] * (right - left);
+                    currentRight = left + (double) fibonacciNumbers[^(i + 3)] / fibonacciNumbers[^(i + 2)] *
+                        (right - left);
                 }
+
+                currentLength = right - left;
+                Logger.Write(intervalLengths.Count, intervalLengths.Count * 2, currentLength, (left + right) / 2);
             }
 
             currentRight = currentLeft + Epsilon;
-            leftValue = Function(currentLeft);
-            rightValue = Function(currentRight);
-            if (leftValue > rightValue)
+            if (Function(currentLeft) > Function(currentRight))
             {
                 right = currentRight;
             }
@@ -45,8 +49,9 @@ namespace FirstLab.Algorithms.Implementations
             {
                 left = currentLeft;
             }
-            
-            Console.WriteLine($"{(left + right) / 2}");
+
+            Logger.Write(intervalLengths.Count, intervalLengths.Count * 2, currentLength, (left + right) / 2);
+            DrawGraph(intervalLengths);
         }
 
         private List<int> CalculateFibonacciNumbers(double number)
