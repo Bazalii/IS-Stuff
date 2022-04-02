@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FirstLab.Loggers;
 
 namespace FirstLab.Algorithms.Implementations
@@ -53,7 +52,6 @@ namespace FirstLab.Algorithms.Implementations
             intervalLengths.Add(currentLength);
 
             Logger.Write(intervalLengths.Count, intervalLengths.Count * 2, currentLength, (left + right) / 2);
-            DrawGraph(intervalLengths);
         }
 
         private List<int> CalculateFibonacciNumbers(double number)

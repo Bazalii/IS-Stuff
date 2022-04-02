@@ -35,7 +35,6 @@ namespace FirstLab.Algorithms.Implementations
             
             intervalLengths.Add(currentLength);
             Logger.Write(intervalLengths.Count, intervalLengths.Count * 2, currentLength, (left + right) / 2);
-            DrawGraph(intervalLengths);
         }
     }
 }

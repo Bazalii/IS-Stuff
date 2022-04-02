@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using FirstLab.Loggers;
 
 namespace FirstLab.Algorithms
@@ -23,10 +22,5 @@ namespace FirstLab.Algorithms
         }
 
         public abstract void Execute(double left, double right);
-
-        protected void DrawGraph(List<double> points)
-        {
-            
-        }
     }
 }
