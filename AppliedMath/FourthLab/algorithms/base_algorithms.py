@@ -21,7 +21,7 @@ def generate_hilbert_matrix(k):
 
 def generate_diagonal_domination_matrix(a, k):
     n = len(a)
-    
+
     matrix = generate_empty_matrix(n, n, "lil")
 
     for i in range(n):
