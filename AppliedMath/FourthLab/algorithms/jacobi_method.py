@@ -1,5 +1,3 @@
-import numpy as np
-
 import matplotlib.pyplot as plt
 
 import math
@@ -7,7 +5,7 @@ import math
 from algorithms.base_algorithms import *
 
 
-def find_max_element(a):  # Find largest off-diag. element a[k,l]
+def find_max_element(a):
     n = a.shape[0]
     a_max = 0.0
     k = 0
@@ -54,7 +52,6 @@ def process_jacobi_method(matrix, p=3):
         lil_matrix_k_transposed = lil_matrix_k.transpose()
 
         matrix = lil_matrix_k_transposed * matrix * lil_matrix_k
-        # counter += 1
 
         if check_end(matrix, p):
             print(f"Jacobi method converges with {i} iterations")
